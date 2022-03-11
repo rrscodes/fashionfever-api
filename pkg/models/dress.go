@@ -35,7 +35,7 @@ func GetAllDresses() []Dress {
 
 func GetDressById(Id int64) (*Dress, *gorm.DB) {
 	var getDress Dress
-	db := db.Where("id = ?", Id).First(&getDress)
+	db := db.Where("id = ?", Id).Find(&getDress)
 	return &getDress, db
 }
 

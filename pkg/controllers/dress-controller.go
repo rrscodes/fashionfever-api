@@ -23,10 +23,10 @@ func GetAllDresses(w http.ResponseWriter, r *http.Request) {
 
 func GetDressById(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	bookId := vars["bookId"]
-	ID, err := strconv.ParseInt(bookId, 0, 0)
+	dressId := vars["dressId"]
+	ID, err := strconv.ParseInt(dressId, 0, 0)
 	if err != nil {
-		fmt.Println("error while parsing bookId")
+		fmt.Println("error while parsing dressId")
 	}
 	dressDetails, _ := models.GetDressById(ID)
 	res, _ := json.Marshal(dressDetails)
@@ -47,10 +47,10 @@ func CreateDress(w http.ResponseWriter, r *http.Request) {
 
 func DeleteDress(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	bookId := vars["bookId"]
-	ID, err := strconv.ParseInt(bookId, 0, 0)
+	dressId := vars["dressId"]
+	ID, err := strconv.ParseInt(dressId, 0, 0)
 	if err != nil {
-		fmt.Println("error while parsing bookId")
+		fmt.Println("error while parsing dressId")
 	}
 	d := models.DeleteDress(ID)
 	res, _ := json.Marshal(d)
@@ -61,10 +61,10 @@ func DeleteDress(w http.ResponseWriter, r *http.Request) {
 
 func UpdateDress(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	bookId := vars["bookId"]
-	ID, err := strconv.ParseInt(bookId, 0, 0)
+	dressId := vars["dressId"]
+	ID, err := strconv.ParseInt(dressId, 0, 0)
 	if err != nil {
-		fmt.Println("error while parsing bookId")
+		fmt.Println("error while parsing dressId")
 	}
 	UpdateDress := &models.Dress{}
 	utils.ParseBody(r, UpdateDress)

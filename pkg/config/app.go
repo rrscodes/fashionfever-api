@@ -6,11 +6,11 @@ import (
 )
 
 var (
-	db *gorm.DB
+	db * gorm.DB
 )
 
 func Connect() {
-	d, err := gorm.Open("mysql", "root:09090909/fashionfever?")
+	d, err := gorm.Open("mysql", "root:09090909@/fashionfever?parseTime=true")
 	if err != nil {
 		panic(err)
 	}
